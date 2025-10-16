@@ -31,10 +31,14 @@
   </div>
 
   <script>
+    // Replace with your EasyCSV sheet token
     const SHEET_TOKEN = "1a998f32-a13a-4709-b43c-3c8dcac5936e";
+
+    // Capture importer email from URL
     const urlParams = new URLSearchParams(window.location.search);
     const importerEmail = urlParams.get("email") || "";
 
+    // Dynamically load EasyCSV script
     const s = document.createElement("script");
     s.src = `https://easycsv.io/embed/import_form.js?sheet_token=${SHEET_TOKEN}&importer_email=${encodeURIComponent(importerEmail)}`;
     s.id = "easycsv_script";
