@@ -26,23 +26,16 @@
   </style>
 </head>
 <body>
-  <div id="easycsv_import_form">
-    <p>Loading EasyCSV Importer...</p>
-  </div>
+  <!-- EasyCSV Embed -->
+  <div id="easycsv_import_form"></div>
+
+  <!-- Replace YOUR_TOKEN below with your real EasyCSV sheet token -->
+  <script
+    src="https://www.easycsv.io/embed/import_form.js?sheet_token=1a998f32-a13a-4709-b43c-3c8dcac5936e"
+    id="easycsv_script">
+  </script>
 
   <script>
-    // Replace with your EasyCSV sheet token
-    const SHEET_TOKEN = "1a998f32-a13a-4709-b43c-3c8dcac5936e";
-
-    // Capture importer email from URL
+    // Optional: automatically include user email in the import
     const urlParams = new URLSearchParams(window.location.search);
-    const importerEmail = urlParams.get("email") || "";
-
-    // Dynamically load EasyCSV script
-    const s = document.createElement("script");
-    s.src = `https://easycsv.io/embed/import_form.js?sheet_token=${SHEET_TOKEN}&importer_email=${encodeURIComponent(importerEmail)}`;
-    s.id = "easycsv_script";
-    document.body.appendChild(s);
-  </script>
-</body>
-</html>
+    const importerEmail = urlParams.get("email");
