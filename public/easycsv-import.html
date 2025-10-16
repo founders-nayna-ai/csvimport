@@ -39,3 +39,10 @@
     // Optional: automatically include user email in the import
     const urlParams = new URLSearchParams(window.location.search);
     const importerEmail = urlParams.get("email");
+    if (importerEmail) {
+      const script = document.getElementById("easycsv_script");
+      script.src = `${script.src}&importer_email=${encodeURIComponent(importerEmail)}`;
+    }
+  </script>
+</body>
+</html>
